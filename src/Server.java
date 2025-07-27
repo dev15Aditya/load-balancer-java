@@ -18,4 +18,13 @@ public class Server {
     public void incrementLoad() {
         currentLoad++;
     }
+
+    public void decayLoad() {
+        if(currentLoad > 0) currentLoad--;
+    }
+
+    public void handleRequest(Request request){
+        incrementLoad();
+        System.out.println("Server " + ipAddress + " handled request: " + request.getPayload());
+    }
 }
